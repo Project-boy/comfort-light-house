@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comfort Light House - Charity Organization</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <style>
+        .vanta-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .donation-methods {
+            display: none;
+        }
+        .donation-methods.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="font-sans bg-white">
+    <!-- Vanta.js Background -->
+    <div id="vanta-bg" class="vanta-bg"></div>
+
+    <!-- Navigation -->
+    <nav class="bg-green-700 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <img src="https://huggingface.co/spaces/BigCollin777/no-sad-space/resolve/main/images/1757746026321.jpg" alt="Comfort Light House Logo" class="h-12 w-12 rounded-full">
+                <span class="text-xl font-bold">Comfort Light House</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#" class="hover:text-yellow-300 transition">Home</a>
+                <a href="#about" class="hover:text-yellow-300 transition">About</a>
+                <a href="#gallery" class="hover:text-yellow-300 transition">Gallery</a>
+                <a href="#contact" class="hover:text-yellow-300 transition">Contact</a>
+                <button id="donateBtn" class="bg-yellow-400 text-green-800 px-4 py-2 rounded-full font-bold hover:bg-yellow-300 transition">Donate Now</button>
+            </div>
+            <button class="md:hidden focus:outline-none" id="mobile-menu-button">
+                <i data-feather="menu"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-green-800 px-6 py-4" id="mobile-menu">
+            <a href="#" class="block py-2 hover:text-yellow-300 transition">Home</a>
+            <a href="#about" class="block py-2 hover:text-yellow-300 transition">About</a>
+            <a href="#gallery" class="block py-2 hover:text-yellow-300 transition">Gallery</a>
+            <a href="#contact" class="block py-2 hover:text-yellow-300 transition">Contact</a>
+            <button id="donateBtnMobile" class="mt-2 bg-yellow-400 text-green-800 px-4 py-2 rounded-full font-bold hover:bg-yellow-300 transition">Donate Now</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center text-center px-4">
+        <div class="absolute inset-0 bg-black opacity-40"></div>
+        <div class="relative z-10 text-white max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6" data-aos="fade-down">Bringing Light to Lives</h1>
+            <p class="text-xl md:text-2xl mb-8" data-aos="fade-up" data-aos-delay="200">Comfort Light House is dedicated to making a difference in Ogun State, Nigeria through compassion and action.</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="400">
+                <button id="donateHeroBtn" class="bg-yellow-400 text-green-800 px-6 py-3 rounded-full font-bold hover:bg-yellow-300 transition">Donate Now</button>
+                <a href="#about" class="bg-white text-green-700 px-6 py-3 rounded-full font-bold hover:bg-gray-100 transition">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-green-700 mb-12" data-aos="fade-up">About Our Mission</h2>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2" data-aos="fade-right">
+                    <img src="http://static.photos/people/640x360/1" alt="Our Team" class="rounded-lg shadow-xl w-full">
+                </div>
+                <div class="md:w-1/2" data-aos="fade-left">
+                    <h3 class="text-2xl font-bold text-green-700 mb-4">Who We Are</h3>
+                    <p class="text-gray-700 mb-4">Comfort Light House is a non-profit organization based in Ogun State, Nigeria, dedicated to improving the lives of the less privileged through various humanitarian initiatives.</p>
+                    <p class="text-gray-700 mb-6">Since our founding in 2010, we've impacted over 10,000 lives through our food distribution programs, educational support, and healthcare initiatives.</p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <i data-feather="heart" class="text-yellow-500 mb-2"></i>
+                            <h4 class="font-bold text-green-700">Compassion</h4>
+                            <p class="text-sm text-gray-600">We serve with love and empathy</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <i data-feather="target" class="text-yellow-500 mb-2"></i>
+                            <h4 class="font-bold text-green-700">Impact</h4>
+                            <p class="text-sm text-gray-600">Measurable change in communities</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-green-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-green-700 mb-12" data-aos="fade-up">Our Gallery</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="overflow-hidden rounded-lg shadow-lg" data-aos="zoom-in">
+                    <img src="https://huggingface.co/spaces/BigCollin777/no-sad-space/resolve/main/images/Copy of Screenshot_20250915_173649_Lite.jpg" alt="Medical Outreach" class="w-full h-64 object-cover">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-bold text-green-700">Medical Outreach</h3>
+                        <p class="text-gray-600 text-sm">Free healthcare services in rural areas</p>
+                    </div>
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-lg" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://huggingface.co/spaces/BigCollin777/no-sad-space/resolve/main/images/Screenshot_20250915_173938_Lite.jpg" alt="Food Distribution" class="w-full h-64 object-cover">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-bold text-green-700">Food Distribution</h3>
+                        <p class="text-gray-600 text-sm">Monthly food packages to families in need</p>
+                    </div>
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-lg" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="https://huggingface.co/spaces/BigCollin777/no-sad-space/resolve/main/images/Copy of Screenshot_20250915_173751_Lite.jpg" alt="Community Outreach" class="w-full h-64 object-cover">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-bold text-green-700">Education Support</h3>
+                        <p class="text-gray-600 text-sm">Providing school supplies to children</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Modal -->
+    <div id="donationModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4" data-aos="zoom-in">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-green-700">Support Our Cause</h3>
+                <button id="closeModal" class="text-gray-500 hover:text-gray-700">
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <div class="mb-6">
+                <label class="block text-gray-700 mb-2">Donation Amount (₦)</label>
+                <input type="number" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400" placeholder="Enter amount">
+            </div>
+            <div class="mb-6">
+                <label class="block text-gray-700 mb-2">Donation Method</label>
+                <select class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                    <option value="">Select payment method</option>
+                    <option value="bank">Bank Transfer</option>
+                    <option value="card">Card Payment</option>
+                    <option value="ussd">USSD</option>
+                </select>
+            </div>
+            <button class="w-full bg-yellow-400 text-green-800 py-3 rounded-lg font-bold hover:bg-yellow-300 transition">Proceed to Payment</button>
+            
+            <div class="donation-methods mt-6 pt-6 border-t">
+                <h4 class="font-bold text-green-700 mb-3">Bank Transfer Details</h4>
+                <div class="bg-green-50 p-4 rounded-lg">
+                    <p class="text-sm mb-1"><span class="font-medium">Bank Name:</span> Zenith Bank</p>
+                    <p class="text-sm mb-1"><span class="font-medium">Account Name:</span> Comfort Light House Foundation</p>
+                    <p class="text-sm mb-1"><span class="font-medium">Account Number:</span> 1234567890</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-green-700 mb-12" data-aos="fade-up">Get In Touch</h2>
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/2" data-aos="fade-right">
+                    <h3 class="text-2xl font-bold text-green-700 mb-4">Contact Information</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <i data-feather="map-pin" class="text-yellow-500 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-green-700">Address</h4>
+                                <p class="text-gray-700">12 Charity Avenue, Abeokuta, Ogun State, Nigeria</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <i data-feather="mail" class="text-yellow-500 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-green-700">Email</h4>
+                                <p class="text-gray-700">info@comfortlighthouse.org</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <i data-feather="phone" class="text-yellow-500 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-green-700">Phone</h4>
+                                <p class="text-gray-700">+234 812 345 6789</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <h4 class="font-bold text-green-700 mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-green-100 p-3 rounded-full text-green-700 hover:bg-green-200 transition">
+                                <i data-feather="facebook"></i>
+                            </a>
+                            <a href="#" class="bg-green-100 p-3 rounded-full text-green-700 hover:bg-green-200 transition">
+                                <i data-feather="twitter"></i>
+                            </a>
+                            <a href="#" class="bg-green-100 p-3 rounded-full text-green-700 hover:bg-green-200 transition">
+                                <i data-feather="instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2" data-aos="fade-left">
+                    <h3 class="text-2xl font-bold text-green-700 mb-4">Send Us a Message</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-gray-700 mb-2">Name</label>
+                            <input type="text" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Email</label>
+                            <input type="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Message</label>
+                            <textarea rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"></textarea>
+                        </div>
+                        <button type="submit" class="bg-green-700 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-600 transition">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-green-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-8 md:mb-0">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <img src="https://huggingface.co/spaces/BigCollin777/no-sad-space/resolve/main/images/1757746026321.jpg" alt="Comfort Light House Logo" class="h-12 w-12 rounded-full">
+                        <span class="text-xl font-bold">Comfort Light House</span>
+                    </div>
+                    <p class="max-w-xs">Bringing hope and comfort to communities in Ogun State, Nigeria through compassionate service.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="hover:text-yellow-300 transition">Home</a></li>
+                            <li><a href="#about" class="hover:text-yellow-300 transition">About</a></li>
+                            <li><a href="#gallery" class="hover:text-yellow-300 transition">Gallery</a></li>
+                            <li><a href="#contact" class="hover:text-yellow-300 transition">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-4">Programs</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="hover:text-yellow-300 transition">Food Aid</a></li>
+                            <li><a href="#" class="hover:text-yellow-300 transition">Education</a></li>
+                            <li><a href="#" class="hover:text-yellow-300 transition">Healthcare</a></li>
+                            <li><a href="#" class="hover:text-yellow-300 transition">Empowerment</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-4">Legal</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="hover:text-yellow-300 transition">Privacy Policy</a></li>
+                            <li><a href="#" class="hover:text-yellow-300 transition">Terms of Service</a></li>
+                            <li><a href="#" class="hover:text-yellow-300 transition">Financial Reports</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-green-700 mt-8 pt-8 text-center">
+                <p>&copy; 2023 Comfort Light House. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Initialize Vanta.js
+        VANTA.GLOBE({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x4ade80,
+            backgroundColor: 0xffffff,
+            size: 1.00
+        });
+
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Donation Modal
+        const donateBtns = document.querySelectorAll('#donateBtn, #donateHeroBtn, #donateBtnMobile');
+        const donationModal = document.getElementById('donationModal');
+        const closeModal = document.getElementById('closeModal');
+        const donationMethods = document.querySelector('.donation-methods');
+        const paymentMethodSelect = document.querySelector('select');
+
+        donateBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                donationModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            donationModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+
+        paymentMethodSelect.addEventListener('change', (e) => {
+            if (e.target.value === 'bank') {
+                donationMethods.classList.add('active');
+            } else {
+                donationMethods.classList.remove('active');
+            }
+        });
+
+        // Close modal when clicking outside
+        donationModal.addEventListener('click', (e) => {
+            if (e.target === donationModal) {
+                donationModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
